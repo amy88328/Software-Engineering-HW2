@@ -20,7 +20,6 @@ class MoviesController < ApplicationController
       ordering,@date_header = {:release_date => :asc}, 'hilite'
     end
     
-    
     if params[:sort] == 'title'
       @title_hilite = 'hilite'
     elsif params[:sort] == 'release_date'
@@ -28,7 +27,6 @@ class MoviesController < ApplicationController
     end 
     
     @movies = Movie.order(ordering)
-    
     #@movies = Movie.all
   end
 
