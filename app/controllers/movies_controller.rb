@@ -36,8 +36,8 @@ class MoviesController < ApplicationController
     
     #Part 2
     @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
-    #Part 1
-    #@movies = Movie.order(ordering)
+    
+    #@movies = Movie.order(ordering) #Part 1
     #@movies = Movie.all
   end
 
