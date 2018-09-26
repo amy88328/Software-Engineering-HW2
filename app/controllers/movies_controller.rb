@@ -26,7 +26,18 @@ class MoviesController < ApplicationController
       @release_hilite ='hilite'
     end 
     
-    @movies = Movie.order(ordering)
+    #Part 2
+    @all_ratings = Movie.all_ratings
+    @selected_ratings = params[:ratings] || {}
+
+    if @selected_ratings == {}
+      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
+    end
+    
+    #Part 2
+    @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
+    #Part 1
+    #@movies = Movie.order(ordering)
     #@movies = Movie.all
   end
 
