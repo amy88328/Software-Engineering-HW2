@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
     
     #Part 2
     @all_ratings = Movie.all_ratings
-    @selected_ratings = params[:ratings] || {} || session[:ratings] # Part 3
+    @selected_ratings = params[:ratings] || session[:ratings]  || {} # Part 3
 
     if @selected_ratings == {}
       @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
